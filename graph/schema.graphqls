@@ -1,0 +1,51 @@
+scalar DateTime
+
+type Framework {
+  id: ID!
+  name: String
+  description: String
+  version: String
+  locked: Boolean
+  editable: Boolean
+  category: [String!]
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Message {
+  msg: String
+}
+
+type Query {
+  framework(id: ID!): Framework
+  frameworks: [Framework!]!
+}
+
+input CreateFramework {
+  name: String!
+  description: String!
+  version: String!
+  locked: Boolean!
+  editable: Boolean!
+  category: [String!]!
+}
+
+input UpdateFramework {
+  id: ID!
+  name: String
+  description: String
+  version: String
+  locked: Boolean
+  editable: Boolean
+  category: [String!]
+}
+
+input DeleteFramework {
+  id: ID!
+}
+
+type Mutation {
+  createFramework(input: CreateFramework): Framework!
+  updateFramework(input: UpdateFramework): Framework!
+  deleteFramework(input: DeleteFramework): Message
+}
