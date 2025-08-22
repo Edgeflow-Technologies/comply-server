@@ -17,8 +17,8 @@ type Message {
 }
 
 type Query {
-  framework(id: ID!): Framework
-  frameworks: [Framework!]!
+#   framework(id: ID!): Framework
+  frameworks(id: ID, limit: Int, pageNumber: Int): [Framework!]!
 }
 
 input CreateFramework {
